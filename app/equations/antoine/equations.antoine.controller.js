@@ -10,4 +10,6 @@ angular.module('cheRefAppApp').controller('AntoineCtrl', ['$scope', function($sc
   $scope.inputB = 'B';
   $scope.inputC = 'C';
   $scope.inputT = 'T';
+
+  $scope.isCollapsed = true;
 }]);
