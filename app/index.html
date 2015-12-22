@@ -14,7 +14,9 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!--<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
+    <script type="text/javascript" src="bower_components/MathJax/MathJax.js"></script>
+    <script type="text/javascript" src="bower_components/MathJax/config/default.js"></script>
   </head>
   <body ng-app="cheRefAppApp">
     <!--[if lte IE 8]>
@@ -53,7 +55,7 @@
 
     <div class="footer">
       <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <p>Brought to you by Andreas</p>
       </div>
     </div>
 
@@ -87,11 +89,14 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="app.js"></script>
-        <script src="main/main.controller.js"></script>
-        <script src="about/about.controller.js"></script>
-        <script src="equations/equations.controller.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="app.js"></script>
+    <script src="main/main.controller.js"></script>
+    <script src="about/about.controller.js"></script>
+    <script src="equations/equations.controller.js"></script>
+    <script src="equations/antoine/equations.antoine.controller.js"></script>
+    <script src="equations/idealGasLaw/equations.idealGasLaw.controller.js"></script>
+    <script src="equations/relativity/equations.relativity.controller.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

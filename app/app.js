@@ -32,9 +32,9 @@ angular
       url: '/equations',
       views: {
         '': {templateUrl: 'equations/equations.view.html', controller: 'EquationsCtrl'},
-        'relativity@equations': {templateUrl: 'equations/equations.relativity.view.html'},
-        'idealGasLaw@equations': {templateUrl: 'equations/equations.idealGasLaw.view.html'},
-        'antoine@equations': {templateUrl: 'equations/equations.antoine.view.html'}
+        'relativity@equations': {templateUrl: 'equations/relativity/equations.relativity.view.html', controller: 'RelativityCtrl'},
+        'idealGasLaw@equations': {templateUrl: 'equations/idealGasLaw/equations.idealGasLaw.view.html', controller: 'IdealGasLawCtrl'},
+        'antoine@equations': {templateUrl: 'equations/antoine/equations.antoine.view.html', controller: 'AntoineCtrl'}
       },
       controller: 'EquationsCtrl'
     })/*.state('equationTabs', {
