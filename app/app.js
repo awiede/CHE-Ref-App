@@ -37,20 +37,7 @@ angular
         'antoine@equations': {templateUrl: 'equations/antoine/equations.antoine.view.html', controller: 'AntoineCtrl'}
       },
       controller: 'EquationsCtrl'
-    })/*.state('equationTabs', {
-      url: '/equationTabs',
-      views: {
-        'relativity': {templateUrl: 'equations/equations.relativity.view.html'},
-        'idealGasLaw': {templateUrl: 'equations/equations.idealGasLaw.view.html'}
-      }
-    })*/
-      /*.state('equations.relativity', {
-      url: '/relativity',
-      templateUrl: 'equations/equations.relativity.view.html'
-    }).state('equations.idealGasLaw', {
-      url: '/idealGasLaw',
-      templateUrl: 'equations/equations.idealGasLaw.view.html'
-    })*/;
+    });
 
     $urlRouterProvider.otherwise('/');
   }]);
