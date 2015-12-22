@@ -9,37 +9,34 @@
   </p>
 </div>
 <div>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="nav navbar-nav navbar-left">
-        <button type="button" class="btn btn-info navbar-btn" ng-click="isCollapsed = !isCollapsed">Calculate</button>
-      </div>
-      <div class="nav navbar-nav">
-        Test Text
-      </div>
-    </div>
-  </nav>
   <hr>
-  <div uib-collapse="isCollapsed">
-    <div class="input-group">
-      <span class="input-group-addon">A</span>
-      <input type="text" class="form-control" ng-model="inputA">
-    </div>
-    <div class="input-group">
-      <span class="input-group-addon">B</span>
-      <input type="text" class="form-control" ng-model="inputB">
-    </div>
-    <div class="input-group">
-      <span class="input-group-addon">C</span>
-      <input type="text" class="form-control" ng-model="inputC">
-    </div>
-    <div class="input-group">
-      <span class="input-group-addon">T</span>
-      <input type="text" class="form-control" ng-model="inputT">
-    </div>
-    <div class="btn-group">
-      <button type="button" class="btn btn-primary">Submit</button>
-      <button type="button" class="btn btn-default">Reset</button>
-    </div>
-  </div>
+  <uib-accordion>
+    <uib-accordion-group heading="Calculate">
+      <form name="inputForm">
+        <div class="input-group">
+          <span class="input-group-addon">A</span>
+          <input type="number" class="form-control" ng-model="antoineForm.inputA" placeholder="A" required/>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon">B</span>
+          <input type="number" class="form-control" ng-model="antoineForm.inputB" placeholder="B" required/>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon">C</span>
+          <input type="number" class="form-control" ng-model="antoineForm.inputC" placeholder="C" required/>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon">T</span>
+          <input type="number" class="form-control" ng-model="antoineForm.inputT" placeholder="T" required/>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary" ng-click="submitAntoine()" ng-disabled="inputForm.$invalid">Submit</button>
+          <button type="button" class="btn btn-default" ng-click="resetInputs()">Reset</button>
+          <div ng-show="showResult">
+            P = {{outputP}}
+          </div>
+        </div>
+      </form>
+    </uib-accordion-group>
+  </uib-accordion>
 </div>

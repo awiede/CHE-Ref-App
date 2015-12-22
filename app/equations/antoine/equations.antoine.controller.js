@@ -6,10 +6,25 @@ angular.module('cheRefAppApp').controller('AntoineCtrl', ['$scope', function($sc
 
   $scope.antoineMessage = 'Test Antoine Message';
 
-  $scope.inputA = 'A';
-  $scope.inputB = 'B';
-  $scope.inputC = 'C';
-  $scope.inputT = 'T';
+  $scope.antoineForm = {};
+  $scope.antoineForm.inputA = null;
+  $scope.antoineForm.inputB = null;
+  $scope.antoineForm.inputC = null;
+  $scope.antoineForm.inputT = null;
+
+  $scope.outputP = null;
 
   $scope.isCollapsed = true;
+  $scope.showResult = false;
+
+  $scope.resetInputs = function() {
+    $scope.antoineForm = {};
+  }
+
+  $scope.submitAntoine = function () {
+
+
+    $scope.showResult = true;
+  }
+
 }]);
