@@ -10,33 +10,31 @@
 </div>
 <div>
   <hr>
-  <uib-accordion>
-    <uib-accordion-group heading="Calculate">
-      <form name="inputForm">
-        <div class="input-group">
-          <span class="input-group-addon">A</span>
-          <input type="number" class="form-control" ng-model="antoineForm.inputA" placeholder="A" required/>
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon">B</span>
-          <input type="number" class="form-control" ng-model="antoineForm.inputB" placeholder="B" required/>
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon">C</span>
-          <input type="number" class="form-control" ng-model="antoineForm.inputC" placeholder="C" required/>
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon">T</span>
-          <input type="number" class="form-control" ng-model="antoineForm.inputT" placeholder="T" required/>
-        </div>
-        <div class="btn-group">
-          <button type="button" class="btn btn-primary" ng-click="submitAntoine()" ng-disabled="inputForm.$invalid">Submit</button>
-          <button type="button" class="btn btn-default" ng-click="resetInputs()">Reset</button>
-          <div ng-show="showResult">
-            P = {{outputP}}
-          </div>
-        </div>
-      </form>
-    </uib-accordion-group>
-  </uib-accordion>
+  <div class="dropdown">
+    <button class="btn btn-info dropdown-toggle" type="button" id="antoineDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      {{currentHydrocarbon.name}}
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="antoineDropdown">
+      <li class="dropdown-header" ng-repeat="hydrocarbon in hydrocarbons"><a ng-click="selectHydrocarbon(hydrocarbon)">{{hydrocarbon.name}}</a></li>
+    </ul>
+  </div>
+  <form name="inputForm">
+    <ul class="list-group">
+      <li class="list-group-item"><label>A</label> {{currentHydrocarbon.A}}</li>
+      <li class="list-group-item"><label>B</label> {{currentHydrocarbon.B}}</li>
+      <li class="list-group-item"><label>C</label> {{currentHydrocarbon.C}}</li>
+    </ul>
+    <div class="input-group">
+      <span class="input-group-addon">T (Kelvin)</span>
+      <input type="number" class="form-control" ng-model="antoineForm.inputT" placeholder="T" required/>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary" ng-click="submitAntoine()" ng-disabled="inputForm.$invalid">Submit</button>
+      <button type="button" class="btn btn-default" ng-click="resetInputs()">Reset</button>
+    </div>
+    <div ng-show="showResult">
+      P = {{outputP}}
+    </div>
+  </form>
 </div>
