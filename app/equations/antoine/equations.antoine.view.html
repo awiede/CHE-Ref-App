@@ -25,7 +25,7 @@
       <li class="list-group-item"><label>B</label> {{currentHydrocarbon.B}}</li>
       <li class="list-group-item"><label>C</label> {{currentHydrocarbon.C}}</li>
     </ul>
-    <div>Enter value between {{currentTemperatureUnit.currentMinTemp}} and {{currentTemperatureUnit.currentMaxTemp}} degrees Kelvin</div>
+    <div>Enter a value between {{currentTemperatureUnit.currentMinTemp}} and {{currentTemperatureUnit.currentMaxTemp}} degrees {{currentTemperatureUnit.longName}}</div>
     <div class="input-group">
       <!--379. - 573.	-->
       <div class="input-group-btn">
@@ -36,8 +36,14 @@
           <li><a ng-click="currentTemperatureUnit = temperatureFields[1]">{{temperatureFields[1].longName}}</a></li>
         </ul>
       </div>
-      <input type="number" class="form-control" ng-model="antoineForm.inputT" placeholder="{{currentTemperatureUnit.abbreviation}}" min="{{currentTemperatureUnit.currentMinTemp}}" max="{{currentTemperatureUnit.currentMaxTemp}}" required/>
+      <input type="number" class="form-control" name="temperatureInput" ng-model="antoineForm.inputT" placeholder="{{currentTemperatureUnit.abbreviation}}" min="{{currentTemperatureUnit.currentMinTemp}}" max="{{currentTemperatureUnit.currentMaxTemp}}" required/>
     </div>
+    <!--<div ng-messages="inputForm.temperatureInput.$error" role="alert">
+      <div ng-message="required">You did not enter a field</div>
+      <div ng-message="minlength, maxlength">
+        You must enter a temperature between {{currentTemperatureUnit.currentMinTemp}} and {{currentTemperatureUnit.currentMaxTemp}} degrees {{currentTemperatureUnit.longName}}
+      </div>
+    </div>-->
     <div class="btn-group">
       <button type="button" class="btn btn-primary" ng-click="submitAntoine()" ng-disabled="inputForm.$invalid">Calculate</button>
       <button type="button" class="btn btn-default" ng-click="resetInputs()">Clear</button>
