@@ -10,11 +10,15 @@ angular.module('cheRefAppApp').controller('AntoineCtrl', ['$scope', function($sc
 
   $scope.hydrocarbons = [{
     name: 'Water',
+    minTemp: 379,
+    maxTemp: 573,
     A: 3.55959,
     B: 643.748,
     C: -198.043
   }, {
     name: 'n-Hexane',
+    minTemp: 379,
+    maxTemp: 573,
     A: 3.45604,
     B: 1044.038,
     C: -53.893

@@ -25,9 +25,11 @@
       <li class="list-group-item"><label>B</label> {{currentHydrocarbon.B}}</li>
       <li class="list-group-item"><label>C</label> {{currentHydrocarbon.C}}</li>
     </ul>
+    <div>Enter value between {{currentHydrocarbon.minTemp}} and {{currentHydrocarbon.maxTemp}} degrees Kelvin</div>
     <div class="input-group">
+      <!--379. - 573.	-->
       <span class="input-group-addon">T (Kelvin)</span>
-      <input type="number" class="form-control" ng-model="antoineForm.inputT" placeholder="T" required/>
+      <input type="number" class="form-control" ng-model="antoineForm.inputT" placeholder="T" min="{{currentHydrocarbon.minTemp}}" max="{{currentHydrocarbon.maxTemp}}" required/>
     </div>
     <div class="btn-group">
       <button type="button" class="btn btn-primary" ng-click="submitAntoine()" ng-disabled="inputForm.$invalid">Calculate</button>
