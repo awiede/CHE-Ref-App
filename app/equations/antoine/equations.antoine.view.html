@@ -25,11 +25,18 @@
       <li class="list-group-item"><label>B</label> {{currentHydrocarbon.B}}</li>
       <li class="list-group-item"><label>C</label> {{currentHydrocarbon.C}}</li>
     </ul>
-    <div>Enter value between {{currentHydrocarbon.minTemp}} and {{currentHydrocarbon.maxTemp}} degrees Kelvin</div>
+    <div>Enter value between {{currentTemperatureUnit.currentMinTemp}} and {{currentTemperatureUnit.currentMaxTemp}} degrees Kelvin</div>
     <div class="input-group">
       <!--379. - 573.	-->
-      <span class="input-group-addon">T (Kelvin)</span>
-      <input type="number" class="form-control" ng-model="antoineForm.inputT" placeholder="T" min="{{currentHydrocarbon.minTemp}}" max="{{currentHydrocarbon.maxTemp}}" required/>
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{currentTemperatureUnit.longName}}<span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <!--K = C + 273.15 -->
+          <li><a ng-click="currentTemperatureUnit = temperatureFields[0]">{{temperatureFields[0].longName}}</a></li>
+          <li><a ng-click="currentTemperatureUnit = temperatureFields[1]">{{temperatureFields[1].longName}}</a></li>
+        </ul>
+      </div>
+      <input type="number" class="form-control" ng-model="antoineForm.inputT" placeholder="{{currentTemperatureUnit.abbreviation}}" min="{{currentTemperatureUnit.currentMinTemp}}" max="{{currentTemperatureUnit.currentMaxTemp}}" required/>
     </div>
     <div class="btn-group">
       <button type="button" class="btn btn-primary" ng-click="submitAntoine()" ng-disabled="inputForm.$invalid">Calculate</button>

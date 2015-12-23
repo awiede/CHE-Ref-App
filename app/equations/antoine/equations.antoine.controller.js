@@ -5,6 +5,7 @@ angular.module('cheRefAppApp').controller('AntoineCtrl', ['$scope', function($sc
   MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 
   var antoineExpression = math.parse('10 ^ (A  - (B / (T + C)))').compile();
+  var kelvinToCelsius = math.parse('K - 273.15').compile();
 
   $scope.antoineMessage = 'Test Antoine Message';
 
@@ -25,6 +26,20 @@ angular.module('cheRefAppApp').controller('AntoineCtrl', ['$scope', function($sc
   }];
 
   $scope.currentHydrocarbon = $scope.hydrocarbons[0];
+
+  $scope.temperatureFields = [{
+    longName: 'Kelvin',
+    abbreviation: 'K',
+    currentMinTemp: $scope.currentHydrocarbon.minTemp,
+    currentMaxTemp: $scope.currentHydrocarbon.maxTemp
+  }, {
+    longName: 'Celsius',
+    abbreviation: 'C',
+    currentMinTemp: math.format(kelvinToCelsius.eval({K: $scope.currentHydrocarbon.minTemp}), {precision: 5}),
+    currentMaxTemp: math.format(kelvinToCelsius.eval({K: $scope.currentHydrocarbon.maxTemp}), {precision: 5})
+  }];
+
+  $scope.currentTemperatureUnit = $scope.temperatureFields[0];
 
   $scope.selectHydrocarbon = function(hydrocarbon) {
     $scope.currentHydrocarbon = hydrocarbon;
