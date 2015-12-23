@@ -4,6 +4,8 @@
 angular.module('cheRefAppApp').controller('AntoineCtrl', ['$scope', function($scope) {
   MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 
+  var antoineExpression = math.parse('10 ^ (A  - (B / (T + C)))').compile();
+
   $scope.antoineMessage = 'Test Antoine Message';
 
   $scope.hydrocarbons = [{
@@ -40,14 +42,19 @@ angular.module('cheRefAppApp').controller('AntoineCtrl', ['$scope', function($sc
 
   $scope.submitAntoine = function () {
     // \log_{10} (P) = A - \frac{B}{T+C}
-    var A = $scope.currentHydrocarbon.A;
-    var B = $scope.currentHydrocarbon.B;
-    var C = $scope.currentHydrocarbon.C;
-    var T = $scope.antoineForm.inputT;
 
-    var numerator = A - ((B) / (T+C));
-    $scope.outputP = Math.pow(10, numerator);
+    var evalScope = {
+      A: $scope.currentHydrocarbon.A,
+      B: $scope.currentHydrocarbon.B,
+      C: $scope.currentHydrocarbon.C,
+      T: $scope.antoineForm.inputT
+    };
+
+    $scope.outputP = antoineExpression.eval(evalScope);
     $scope.showResult = true;
-  }
+
+    console.log('Antoine Result: ', $scope.outputP);
+
+  };
 
 }]);
