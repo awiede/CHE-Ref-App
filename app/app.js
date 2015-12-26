@@ -10,14 +10,7 @@
  */
 angular
   .module('cheRefAppApp', [
-    'ngAnimate',
-    'ngAria',
-    'ngCookies',
-    'ngMessages',
-    'ngResource',
     'ui.router',
-    'ngSanitize',
-    'ngTouch',
     'ui.bootstrap'
   ]).config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider.state('main', {
